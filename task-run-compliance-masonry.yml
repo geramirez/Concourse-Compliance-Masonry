@@ -1,4 +1,11 @@
 platform: linux
 image: "docker:///python"
+inputs:
+- name: scripts
+  path: /scripts
+- name: compliance-repository
+  path: /compliance-repository
 run:
-  path: ./scripts/run-compliance-masonry.sh
+  path: bash
+  args: ["./scripts/run-compliance-masonry.sh"]
+          

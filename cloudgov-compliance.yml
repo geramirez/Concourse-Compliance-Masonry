@@ -3,11 +3,16 @@ jobs:
   public: true
   plan:
   - get: compliance-repository
+  - get: scripts
   - task: run-compliance-masonry
-    file: ./task-run-compliance-masonry.yml
+    file: scripts/task-run-compliance-masonry.yml
 
 resources:
 - name: compliance-repository
   type: git
   source:
     uri: https://github.com/18F/cg-compliance.git
+- name: scripts
+  type: git
+  source:
+    uri: https://github.com/geramirez/Concourse-Compliance-Masonry.git
