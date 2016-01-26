@@ -1,0 +1,4 @@
+platform: linux
+image: "docker:///python"
+run:
+  path: ./scripts/run-compliance-masonry.sh

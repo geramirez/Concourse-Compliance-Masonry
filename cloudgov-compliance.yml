@@ -1,0 +1,13 @@
+jobs:
+- name: verify-compliance
+  public: true
+  plan:
+  - get: compliance-repository
+  - task: run-compliance-masonry
+    file: ./task-run-compliance-masonry.yml
+
+resources:
+- name: compliance-repository
+  type: git
+  source:
+    uri: https://github.com/18F/cg-compliance.git
