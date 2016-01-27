@@ -6,6 +6,10 @@ jobs:
   - get: scripts
   - task: run-compliance-masonry
     file: scripts/task-run-compliance-masonry.yml
+  - put: deploy-documentation
+    params:
+      manifest: compliance-repository/manifest.yaml
+      path: compliance-repository
 
 resources:
 - name: compliance-repository
@@ -16,3 +20,11 @@ resources:
   type: git
   source:
     uri: https://github.com/geramirez/Concourse-Compliance-Masonry.git
+- name: deploy-documentation
+  type: cf
+  source:
+    api: {{API}}
+    username: {{USERNAME}}
+    password: {{PASSWORD}}
+    organization: {{ORG}}
+    space: {{SPACE}}

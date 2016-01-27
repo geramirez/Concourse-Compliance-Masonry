@@ -5,6 +5,7 @@ inputs:
   path: /scripts
 - name: compliance-repository
   path: /compliance-repository
+ 
 run:
   path: bash
   args: ["./scripts/run-compliance-masonry.sh"]
