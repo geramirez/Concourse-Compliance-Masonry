@@ -2,5 +2,6 @@
 #npm install gitbook-cli -g
 ls
 ls compliance-repository
-ls compliance-repository/exports
+ls
+ls gitbook
 #gitbook build
