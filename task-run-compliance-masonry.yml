@@ -8,6 +8,8 @@ inputs:
 outputs:
 - name: compliance-repository
   path: /compliance-repository
+- name: exports
+  path: /compliance-repository/exports
 run:
   path: bash
   args: ["./scripts/run-compliance-masonry.sh"]
