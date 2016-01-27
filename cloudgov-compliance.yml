@@ -6,10 +6,12 @@ jobs:
   - get: scripts
   - task: run-compliance-masonry
     file: scripts/task-run-compliance-masonry.yml
+  - task: create-gitbook
+    file: scripts/task-create-gitbook.yml
   - put: deploy-documentation
     params:
       manifest: compliance-repository/manifest.yaml
-      path: compliance-repository/exports/
+      path: compliance-repository
 
 resources:
 - name: compliance-repository
