@@ -5,8 +5,6 @@ inputs:
   path: /scripts
 - name: compliance-repository
   path: compliance-repository
-- name: gitbook
-  path: gitbook
 run:
   path: bash
   args: ["./scripts/create-gitbook.sh"]
