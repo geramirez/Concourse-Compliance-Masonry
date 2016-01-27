@@ -3,8 +3,8 @@ image: "docker:///node"
 inputs:
 - name: scripts
   path: /scripts
-- name: exports
-  path: exports
+- name: compliance-repository
+  path: compliance-repository
 run:
   path: bash
   args: ["./scripts/create-gitbook.sh"]
