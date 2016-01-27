@@ -5,6 +5,9 @@ inputs:
   path: /scripts
 - name: compliance-repository
   path: /compliance-repository
+outputs:
+- name: gitbook
+  path: /compliance-repository/exports/gitbook
 run:
   path: bash
   args: ["./scripts/run-compliance-masonry.sh"]
