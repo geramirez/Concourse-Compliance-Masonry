@@ -1,6 +1,8 @@
 platform: linux
 image: "docker:///node"
 inputs:
+- name: scripts
+  path: /scripts
 - name: compliance-repository
   path: /compliance-repository
 run:
