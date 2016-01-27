@@ -6,7 +6,7 @@ inputs:
 - name: compliance-repository
   path: /compliance-repository
 outputs:
-  name: documentation
+- name: documentation
   path: /compliance-repository/exports
 run:
   path: bash
