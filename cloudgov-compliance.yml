@@ -9,7 +9,7 @@ jobs:
   - put: deploy-documentation
     params:
       manifest: compliance-repository/manifest.yaml
-      path: documentation
+      path: compliance-repository/exports/
 
 resources:
 - name: compliance-repository
