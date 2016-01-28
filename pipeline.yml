@@ -4,29 +4,26 @@ jobs:
   plan:
   - get: compliance-repository
     trigger: true
-  - get: scripts
   - task: run-compliance-masonry
     config:
       platform: linux
       image: docker:///geramirez/compliance-masonry-cli-build#0.2
       inputs:
-      - name: scripts
-        path: /scripts
+
       - name: compliance-repository
         path: compliance-repository
       run:
         path: bash
-        args: ["./scripts/run-compliance-masonry.sh"]
+        args: ["-c", "cd compliance-repository && masonry certs LATO && masonry docs gitbook LATO"]
   - task: create-gitbook
     config:
       platform: linux
       image: "docker:///geramirez/gitbook-docker"
       inputs:
-      - name: scripts
       - name: run-compliance-masonry
       run:
         path: bash
-        args: ["./scripts/create-gitbook.sh"]
+        args: ["-c", "cd run-compliance-masonry/compliance-repository/exports/gitbook/ && gitbook build"]
   - put: deploy-documentation
     params:
       manifest: create-gitbook/run-compliance-masonry/compliance-repository/manifest.yaml
@@ -37,10 +34,7 @@ resources:
   type: git
   source:
     uri: https://github.com/18F/cg-compliance.git
-- name: scripts
-  type: git
-  source:
-    uri: https://github.com/geramirez/Concourse-Compliance-Masonry.git
+    branch: master
 - name: deploy-documentation
   type: cf
   source:
