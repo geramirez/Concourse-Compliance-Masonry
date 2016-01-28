@@ -5,9 +5,26 @@ jobs:
   - get: compliance-repository
   - get: scripts
   - task: run-compliance-masonry
-    file: scripts/task-run-compliance-masonry.yml
+    config:
+      platform: linux
+      image: "docker:///python"
+      inputs:
+      - name: scripts
+        path: /scripts
+      - name: compliance-repository
+        path: compliance-repository
+      run:
+        path: bash
+        args: ["./scripts/run-compliance-masonry.sh"]
   - task: create-gitbook
-    file: scripts/task-create-gitbook.yml
+    config:
+      platform: linux
+      image: "docker:///node"
+      inputs:
+      - name: scripts
+      run:
+        path: bash
+        args: ["./scripts/create-gitbook.sh"]
   - put: deploy-documentation
     params:
       manifest: compliance-repository/manifest.yaml
