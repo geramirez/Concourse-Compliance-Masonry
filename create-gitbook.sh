@@ -1,3 +1,4 @@
 #!/bin/bash
-npm install gitbook-cli -g
-gitbook build
+ls
+#npm install gitbook-cli -g
+#gitbook build

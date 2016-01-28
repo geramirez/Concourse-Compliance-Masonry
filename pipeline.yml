@@ -21,7 +21,7 @@ jobs:
       platform: linux
       image: "docker:///node"
       inputs:
-      - name: scripts
+      - name: run-compliance-masonry
       run:
         path: bash
         args: ["./scripts/create-gitbook.sh"]
