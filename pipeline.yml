@@ -21,6 +21,8 @@ jobs:
       platform: linux
       image: "docker:///node"
       inputs:
+      - name: scripts
+        path: scripts
       - name: run-compliance-masonry
       run:
         path: bash
