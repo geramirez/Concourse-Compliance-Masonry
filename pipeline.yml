@@ -29,8 +29,8 @@ jobs:
         args: ["./scripts/create-gitbook.sh"]
   - put: deploy-documentation
     params:
-      manifest: compliance-repository/manifest.yaml
-      path: compliance-repository
+      manifest: create-gitbook/compliance-repository/manifest.yaml
+      path: create-gitbook/compliance-repository/
 
 resources:
 - name: compliance-repository
