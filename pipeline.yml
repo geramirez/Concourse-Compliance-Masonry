@@ -3,6 +3,7 @@ jobs:
   public: true
   plan:
   - get: compliance-repository
+    trigger: true
   - get: scripts
   - task: run-compliance-masonry
     config:
@@ -22,15 +23,14 @@ jobs:
       image: "docker:///node"
       inputs:
       - name: scripts
-        path: scripts
       - name: run-compliance-masonry
       run:
         path: bash
         args: ["./scripts/create-gitbook.sh"]
   - put: deploy-documentation
     params:
-      manifest: create-gitbook/compliance-repository/manifest.yaml
-      path: create-gitbook/compliance-repository/
+      manifest: create-gitbook/run-compliance-masonry/compliance-repository/manifest.yaml
+      path: create-gitbook/run-compliance-masonry/compliance-repository
 
 resources:
 - name: compliance-repository
